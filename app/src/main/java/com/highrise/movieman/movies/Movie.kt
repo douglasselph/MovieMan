@@ -3,4 +3,7 @@
  */
 package com.highrise.movieman.movies
 
-class Movie(val name: String, val lastUpdated: Int)
+class Movie(
+    val name: String,
+    val lastUpdated: Int
+)

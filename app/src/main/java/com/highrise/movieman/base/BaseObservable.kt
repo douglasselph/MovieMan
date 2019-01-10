@@ -1,4 +1,4 @@
-package com.highrise.movieman.common
+package com.highrise.movieman.base
 
 import java.util.Collections
 import java.util.concurrent.ConcurrentHashMap

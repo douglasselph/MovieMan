@@ -3,6 +3,27 @@
  */
 package com.highrise.movieman.screens.movielist
 
-class MovieListController {
+import com.highrise.movieman.movies.FetchMovieListUseCase
+import com.highrise.movieman.movies.Movie
+import com.highrise.movieman.screens.common.ScreenNavigator
 
+class MovieListController(
+    private val fetchMovieListUseCase: FetchMovieListUseCase,
+    private val screenNavigator: ScreenNavigator
+) : MovieListViewMvc.Listener {
+
+    lateinit var viewMvc: MovieListViewMvc
+
+    fun onStart() {
+        viewMvc.bindMovies(fetchMovieListUseCase.fetchMovies())
+        viewMvc.registerListener(this)
+    }
+
+    fun onStop() {
+        viewMvc.unregisterListener(this)
+    }
+
+    override fun onMovieClicked(movie: Movie) {
+        screenNavigator.toMovieDetail(movie)
+    }
 }

@@ -13,6 +13,7 @@
 #include <map>
 
 namespace movies {
+
     class Actor {
     public:
         std::string name;
@@ -26,7 +27,6 @@ namespace movies {
     public:
         std::string name;
         int lastUpdated;
-        
     };
     
     class MovieDetail {
@@ -43,12 +43,12 @@ namespace movies {
         std::map<std::string, MovieDetail*> _details;
 
     public:
-        MovieController() {
+        MovieController(int count) {
             //populate data
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < count; i++) {
                 auto movie = new Movie();
                 movie->name = "Top Gun " + std::to_string(i);
-                movie->lastUpdated = i * 10000;
+                movie->lastUpdated = i * 10000 + 1;
                 _movies.push_back(movie);
                 
                 auto movieDetail = new MovieDetail();

@@ -1,19 +1,38 @@
 package com.highrise.movieman.screens.movielist
 
-import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.highrise.movieman.R
+import com.highrise.movieman.base.BaseFragment
 
 /**
  * The list of movies
  */
-class MovieListFragment : Fragment() {
+class MovieListFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+    lateinit var movieListController: MovieListController
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val movieListViewMvc = compositionRoot.factoryViewMvc.allocMovieListViewMvc(container)
+
+        movieListController = compositionRoot.allocMovieListController()
+        movieListController.viewMvc = movieListViewMvc
+
+        return movieListViewMvc.rootView
+    }
+
+    override fun onStart() {
+        super.onStart()
+        movieListController.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        movieListController.onStop()
+
     }
 }
