@@ -12,7 +12,7 @@ import com.highrise.movieman.R
 import com.highrise.movieman.base.ObservableViewMvcImpl
 import com.highrise.movieman.movies.Movie
 import com.highrise.movieman.screens.factory.FactoryViewMvc
-import com.highrise.movieman.screens.parts.SimpleDividerItemDecoration
+import com.highrise.movieman.screens.uiparts.SimpleDividerItemDecoration
 
 class MovieListViewMvcImpl(
     inflater: LayoutInflater,

@@ -3,21 +3,8 @@
  */
 package com.highrise.movieman.moviesnative
 
-import com.highrise.movieman.movies.Movie
-import com.highrise.movieman.movies.MovieDetail
-
 /**
- * Extract the list of movies from a native call.
- *
- * Returned as a List<Movie>.
- *
- * Thought: a more formal approach here would be to have this class
- * only know about it's version of class Movie. That is a class
- * called MovieNative. Then the FetchMovieListUseCase would do a translation
- * from that into the system's Movie. The advantage of that approach
- * is it would encapsulate native movie fetches from the rest of the
- * system and visa versa. I am not doing that here, because that could
- * be considered a future enhancement as the system grows in complexity.
+ * Extract the list of movies or movie details from a native call.
  */
 class MovieControllerNative(count: Int) {
 

@@ -2,7 +2,7 @@
  * Copyright @  2019  Douglas Selph
  */
 
-package com.highrise.movieman.screens.parts
+package com.highrise.movieman.screens.uiparts
 
 import android.content.Context
 import android.graphics.Canvas
